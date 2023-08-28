@@ -1,6 +1,6 @@
-import { Routes } from '@interfaces/route.interface';
+import { Routes } from '@/interfaces/route.interface';
 import { Router } from 'express';
-import ServiceUnavailableController from '@controllers/serviceUnavailable.controller';
+import ServiceUnavailableController from '@/controllers/serviceUnavailable.controller';
 
 class ServiceUnavailableRoute implements Routes {
   public path = '/';

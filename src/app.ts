@@ -1,10 +1,10 @@
-import express from "express";
-import { Routes } from "@/interfaces/route.interface";
-import { errorMiddleware } from "@/middlewares/error.middleware";
-import ServiceUnavailableRoute from "@/routes/serviceUnavailable.route";
-import morgan from "morgan";
-import logger from "@/utils/logger";
-import { SERVER_PORT } from "@/config";
+import express from 'express';
+import { Routes } from '@/interfaces/route.interface';
+import { errorMiddleware } from '@/middlewares/error.middleware';
+import ServiceUnavailableRoute from '@/routes/serviceUnavailable.route';
+import morgan from 'morgan';
+import logger from '@/utils/logger';
+import { SERVER_PORT } from '@/config';
 
 class App {
   public app: express.Application;
@@ -23,13 +23,13 @@ class App {
 
   private initiateRoutes(routes: Routes[]) {
     routes.forEach((route) => {
-      this.app.use("/", route.router);
+      this.app.use('/', route.router);
     });
-    this.app.use("*", new ServiceUnavailableRoute().router);
+    this.app.use('*', new ServiceUnavailableRoute().router);
   }
 
   private initiateMiddlewares() {
-    this.app.use(morgan("dev"));
+    this.app.use(morgan('dev'));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
   }
@@ -45,10 +45,10 @@ class App {
     this.app.use(errorMiddleware);
   }
 
-  public listen() {
-    this.app.listen(this.port, () => {
+  public listen(port = this.port) {
+    this.app.listen(port, () => {
       logger.info(`=================================`);
-      logger.info(`App listening on the port ${this.port}`);
+      logger.info(`App listening on the port ${port}`);
       logger.info(`=================================`);
     });
   }

@@ -1,10 +1,9 @@
-import { Routes } from "@/interfaces/route.interface";
-import { Router } from "express";
-import logger from "@/utils/logger";
-import HealthController from "@/controllers/health.controller";
+import { Routes } from '@/interfaces/route.interface';
+import { Router } from 'express';
+import HealthController from '@/controllers/health.controller';
 
 class ApiRoute implements Routes {
-  public path = "/api";
+  public path = '/api';
   public router = Router();
 
   private healthController = new HealthController();

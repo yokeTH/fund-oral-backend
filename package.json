@@ -1,7 +1,7 @@
 {
   "name": "fund-oral-backend",
   "version": "1.0.0",
-  "main": "dist/src/server.js",
+  "main": "dist/server.js",
   "scripts": {
     "prepare": "husky install",
     "start": "npm run build && NODE_ENV=production node dist/server.js",
@@ -25,11 +25,13 @@
     "express": "^4.18.2",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
+    "mongoose": "^7.4.5",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.2",
     "tsc-alias": "^1.8.7",
     "tslog": "^4.9.2",
+    "typescript": "^5.2.2",
     "xlsx": "^0.18.5"
   }
 }
